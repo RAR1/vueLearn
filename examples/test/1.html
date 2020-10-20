@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../dist/vue.js"></script>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li v-for="item in b">{{item}}</li>
+        </ul>
+        <div id="text"></div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#box',
+            data: {
+                a: 1,
+                b: [1, 2, 3]
+            },
+            methods: {
+                add() {
+                    this.a += 1;
+                }
+            },
+            mounted() {
+               
+            }
+        })
+
+
+        let obj = {}
+        Object.defineProperty(obj, 'name', {
+            get: function() {
+                return document.querySelector("#text").innerHTML;
+            },
+            set: function(val) {
+                document.querySelector("#text").innerHTML = val;
+            }
+        })
+        obj.name = 'jerry';
+    </script>
+</body>
+</html>
